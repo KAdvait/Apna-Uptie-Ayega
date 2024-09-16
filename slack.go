@@ -8,7 +8,7 @@ import (
 )
 
 func sendSlackNotification(endpoint, message string) {
-	webhookURL := "https://hooks.slack.com/services/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"
+	webhookURL := "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 	payload := map[string]string{
 		"text": fmt.Sprintf("Endpoint %s is down: %s", endpoint, message),
