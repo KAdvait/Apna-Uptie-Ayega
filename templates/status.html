@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apna Uptime Ayega</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Apna Uptime Ayega</h1>
+    <table>
+        <tr>
+            <th>Endpoint</th>
+            <th>Status Code</th>
+            <th>Last Checked</th>
+            <th>Healthy Since</th>
+        </tr>
+        {{range $key, $status := .}}
+        <tr>
+            <td>{{$status.URL}}</td>
+            <td>{{$status.StatusCode}}</td>
+            <td>{{$status.LastChecked}}</td>
+            <td>{{if eq $status.StatusCode 200}}{{$status.HealthySince}}{{else}}N/A{{end}}</td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>
